@@ -8,12 +8,12 @@ export interface ITeacher extends Document {
 }
 
 const TeacherSchema = new Schema({
-  name: { type: String, require: true },
+  name: { type: String, required: true }, // Fixed typo
   image: { type: String },
-  material: { type: String, require: true },
+  material: { type: String, required: true }, // Fixed typo
   createdAt: { type: Date, default: Date.now },
 });
 
-const Teacher = models.Teacher || model("Teacher", TeacherSchema);
+const Teacher = models.Teacher || model<ITeacher>("Teacher", TeacherSchema);
 
 export default Teacher;

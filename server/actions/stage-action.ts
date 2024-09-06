@@ -15,6 +15,11 @@ export async function createStage(stageData: StageParams) {
 }
 
 export async function getStages() {
-  const stages = await Stage.find({});
-  return stages;
+  try {
+    const stages = await Stage.find({});
+    return stages;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }

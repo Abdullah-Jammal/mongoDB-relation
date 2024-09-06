@@ -7,11 +7,11 @@ export interface IStage extends Document {
 }
 
 const StageSchema = new Schema({
-  name: { type: String, require: true },
-  material: { type: String, require: true },
+  name: { type: String, required: true }, // Fixed typo
+  material: { type: String, required: true }, // Fixed typo
   createdAt: { type: Date, default: Date.now },
 });
 
-const Stage = models.Stage || model("Stage", StageSchema);
+const Stage = models.Stage || model<IStage>("Stage", StageSchema);
 
 export default Stage;
